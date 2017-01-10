@@ -1,0 +1,5 @@
+# the inception Neural net, this will be downloaded
+inception
+# bottlenecks are image layers built on inception
+bottlenecks
+
