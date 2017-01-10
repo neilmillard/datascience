@@ -6,10 +6,12 @@ def euc(a,b):
 
 # Bare (scrappy) KNearest Neighbour. K = 1
 class ScrappyKNN():
+    # remember the training data
     def fit(self, X_train, y_train):
         self.X_train = X_train
         self.y_train = y_train
 
+    # predict by iterating over the training data and finding the closest neighbour
     def predict(self, X_test):
         predictions = []
         for row in X_test:
