@@ -5,7 +5,17 @@ This repo contains code that I'm using to learn about NN
 The attached vagrant file will clone the neilmillard/puppet-dockerhost repo
 and build docker with the official tensorflow container https://hub.docker.com/r/tensorflow/tensorflow/
 
+# Docker
 
+There is a dockerfile to build and launch
+```
+docker build -t "neilmillard/tensorflow:1.0-pandas" .
+```
+and launch with ports 6006 for tensorboard and 8888 for the notebook server and
+set a notebook server password with env variable PASSWORD
+-it gives an interactive session also
+volumes can be mounted to /notebooks for the notebook server
+docker run -it -e "PASSWORD=somepassword" -p 6006:6006 -p 8888:8888 -v /notebooks ./notebooks neilmillard/tensorflow:1.0-pandas
 
 ## installing tensorflow
 
