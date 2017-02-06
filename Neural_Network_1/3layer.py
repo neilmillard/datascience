@@ -1,6 +1,6 @@
 from numpy import exp, array, random, dot
 
-# from github.com/jiexunsee
+#  from github.com/jiexunsee
 
 class NeuralNetwork():
     def __init__(self):
@@ -37,8 +37,8 @@ class NeuralNetwork():
             del4 = training_set_outputs - output
 
             # find errors in each layer
-            del3 = dot(self.synaptic_weights3, del4.T) * (self.__sigmoid_derivative(a3).T)
-            del2 = dot(self.synaptic_weights2, del3) * (self.__sigmoid_derivative(a2).T)
+            del3 = dot(self.synaptic_weights3, del4.T) * self.__sigmoid_derivative(a3).T
+            del2 = dot(self.synaptic_weights2, del3) * self.__sigmoid_derivative(a2).T
 
             # get adjustments (gradients) for each layer
             adjustment3 = dot(a3.T, del4)
@@ -62,12 +62,12 @@ if __name__ == "__main__":
     # initialise single neuron neural network
     neural_network = NeuralNetwork()
 
-    print "Random starting synaptic weights (layer 1): "
-    print neural_network.synaptic_weights1
-    print "\nRandom starting synaptic weights (layer 2): "
-    print neural_network.synaptic_weights2
-    print "\nRandom starting synaptic weights (layer 3): "
-    print neural_network.synaptic_weights3
+    print ("Random starting synaptic weights (layer 1): ")
+    print (neural_network.synaptic_weights1)
+    print ("\nRandom starting synaptic weights (layer 2): ")
+    print (neural_network.synaptic_weights2)
+    print ("\nRandom starting synaptic weights (layer 3): ")
+    print (neural_network.synaptic_weights3)
 
     # the training set.
     training_set_inputs = array([[0, 0, 1], [1, 1, 1], [1, 0, 1], [0, 1, 1]])
@@ -75,15 +75,15 @@ if __name__ == "__main__":
 
     neural_network.train(training_set_inputs, training_set_outputs, 10000)
 
-    print "\nNew synaptic weights (layer 1) after training: "
-    print neural_network.synaptic_weights1
-    print "\nNew synaptic weights (layer 2) after training: "
-    print neural_network.synaptic_weights2
-    print "\nNew synaptic weights (layer 3) after training: "
-    print neural_network.synaptic_weights3
+    print ("\nNew synaptic weights (layer 1) after training: ")
+    print (neural_network.synaptic_weights1)
+    print ("\nNew synaptic weights (layer 2) after training: ")
+    print (neural_network.synaptic_weights2)
+    print ("\nNew synaptic weights (layer 3) after training: ")
+    print (neural_network.synaptic_weights3)
 
     # test with new input
-    print "\nConsidering new situation [1,0,0] -> ?"
-    print neural_network.forward_pass(array([1, 0, 0]))
+    print ("\nConsidering new situation [1,0,0] -> ?")
+    print (neural_network.forward_pass(array([1, 0, 0])))
     print ('Considering [0,1,0] -> ?: ')
     print (neural_network.forward_pass(array([0, 1, 0])))
